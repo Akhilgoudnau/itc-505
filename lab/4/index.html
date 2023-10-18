@@ -3,42 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Bootstrap Concept</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Link to Bootstrap CSS here if needed -->
+    <title>Summary of TRNGs from Pre-Formed ReRAM Arrays</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>The Power of Web Bootstrap</h1>
-        </header>
-        <main>
-            <article>
-                <h2>Understanding Bootstrap</h2>
-                <p>
-                    Bootstrap is a widely used front-end framework for web development. It provides a collection of CSS and
-                    JavaScript components that make it easier to create responsive and visually appealing websites and web
-                    applications. Bootstrap, often referred to as "Bootstrap CSS" or simply "Bootstrap," is an open-source project
-                    developed by Twitter and is now maintained by the Bootstrap community.
-                </p>
-                <p>
-                    The core concept behind Bootstrap is to offer a set of pre-designed, customizable elements and styles that
-                    simplify the process of creating consistent and user-friendly web interfaces. With Bootstrap, developers can
-                    leverage a grid system, typography, forms, buttons, navigation bars, and more, saving time and effort in
-                    design and development.
-                </p>
-                <p>
-                    Furthermore, Bootstrap is built with a mobile-first approach, ensuring that websites and applications created
-                    with it are responsive and adapt seamlessly to various screen sizes and devices, from smartphones to
-                    large desktops. Its robust documentation and a thriving community of users and contributors make it a valuable
-                    resource for web designers and developers.
-                </p>
-                <!-- Add more content to reach 1000 words if needed -->
-            </article>
-        </main>
-        <footer>
-            &copy; 2023 Akhil Goud Dhudala
-        </footer>
+    <h1>Summary of TRNGs from Pre-Formed ReRAM Array</h1>
+
+    <p>
+        <strong>Bertrand Cambou<sup>1</sup>, Donald Telesca<sup>2</sup>, Sareh Assiri<sup>1</sup>, Micheal Garrett<sup>1</sup>, Saloni Jain<sup>1</sup>, and Michael Patridge<sup>1</sup></strong>
+    </p>
+
+    <p>
+        <sup>1</sup> School of Informatics, Computing, and Cyber System, Northern Arizona University, Flagstaff, Arizona 86001, USA; 
+        <a href="mailto:bertrand.cambou@nau.edu">bertrand.cambou@nau.edu</a> (B.C), 
+        <a href="mailto:sa2363@nau.edu">sa2363@nau.edu</a> (S.A), 
+        <a href="mailto:mlg238@nau.edu">mlg238@nau.edu</a> (M.G); 
+        <a href="mailto:sj779@nau.edu">sj779@nau.edu</a> (S.J); 
+        <a href="mailto:mcp292@nau.edu">mcp292@nau.edu</a> (M.P)
+    </p>
+
+    <p>
+        <sup>2</sup> Air Force Research Laboratory, Information Directorate, Rome, NY 13441, USA; 
+        <a href="mailto:Donald.telesca@us.af.mil">Donald.telesca@us.af.mil</a>
+    </p>
+
+    <p>
+        <strong>Correspondence:</strong> <a href="mailto:bertrand.cambou@nau.edu">bertrand.cambou@nau.edu</a>; Contact: +1-928-523-7824
+    </p>
+
+    <h2>Abstract:</h2>
+
+    <p>
+        The article "TRNGs from Pre-Formed ReRAM Arrays" presents a novel method for creating True Random Number 
+        Generators (TRNGs) using pre-formed Resistive Random-Access Memory (ReRAM) arrays. The authors 
+        demonstrate how ReRAMs may be used as a source of noise to produce true random numbers, and then analyze 
+        the generated TRNGs in depth. The article describes the suggested TRNGs' design and implementation, as well as 
+        its performance and security aspects. The authors conclude that ReRAM-based TRNGs provide a dependable, 
+        low-cost, and scalable approach for generating really random numbers, with applications in cryptography, secure 
+        communications, and other fields requiring high-quality random numbers.
+    </p>
+
+    <h2>Keywords:</h2>
+
+    <ul>
+        <li>True Random Number Generator (TRNG)</li>
+        <li>Cryptography</li>
+        <li>Pseudo-random number generator (PRNG)</li>
+        <li>Security</li>
+        <li>Unpredictability</li>
+        <li>Key exchange</li>
+        <li>Digital signatures</li>
+        <li>Randomized outcomes</li>
+        <li>Electronic noise</li>
+        <li>Optical noise</li>
+        <li>Quantum mechanics</li>
+        <li>Reliability</li>
+        <li>Simulations</li>
+        <li>Modeling</li>
+        <li>Data sets</li>
+    </ul>
+
+    <h2>Introduction</h2>
+
+    <p>
+        A TRNG is a device or program that generates random numbers by exploiting physical randomness sources such 
+        as air noise, thermal noise, or radioactive decay. TRNGs' randomness and unpredictability make them valuable in 
+        a variety of applications, including cryptography, simulations, and gaming. TRNGs, as opposed to pseudo-random 
+        number generators (PRNGs), which utilize deterministic methods to generate sequences of numbers that seem 
+        random but are not actually random, rely on naturally random processes to produce genuinely random numbers. 
+        TRNGs are critical in secure communication systems, because the use of predictable numbers might jeopardize 
+        the protection of sensitive data.
+    </p>
+
+    <p>
+        Several cryptographic procedures, such as encryption, digital signatures, and key exchange, rely on the 
+        randomness and unpredictability of the keys used to ensure their security. As a result, producing truly random 
+        numbers is critical for assuring the security and integrity of these systems. TRNGs are used in simulations and 
+        modelling to generate realistic and unexpected data sets, as well as in gaming to provide randomized results. 
+        TRNGs can be implemented in a variety of methods, including through the use of electronic noise, optical noise, 
+        or quantum mechanical processes. TRNG architecture is determined by the application as well as the required 
+        amount of randomness, throughput, and security. Overall, TRNGs are an important tool for assuring the security 
+        and dependability of many systems that rely on random number generation.
+
+    </p>
+
+    <h2>Memory-Based TRNGs</h2>
+
+    <p>
+        Memory-Based TRNGs are a form of True Random Number Generator that generates random numbers by 
+        varying the resistance of memory cells. TRNGs store a piece of information in a memory cell, such as a Static 
+        Random-Access Memory (SRAM) or Dynamic Random-Access Memory (DRAM), and then test the cell's 
+        resistance. Because of thermal noise, process differences, or other physical causes, the cell's resistance might 
+        vary, resulting in random voltage fluctuations that can be utilized to produce random numbers. TRNGs based on 
+        memory have various advantages, including low cost, high throughput, and ease of integration into existing 
+        systems. They do, however, have significant disadvantages, including sensitivity to various sorts of assaults and 
+        the need for post-processing of the produced random numbers. Overall, Memory-Based TRNGs provide a useful 
+        and practical solution for generating high-quality random numbers in various applications, such as cryptography, 
+        simulations, and gaming.
+    </p>
+
+    <h2>Background Information on PRNGs and TRNGs</h2>
+
+    <p> 
+        The two types of methods used to produce number sequences are pseudo-random number generators (PRNGs) 
+        and true random number generators (TRNGs). While both are used to generate sequences that look random, 
+        they differ in how they do so.
+    </p>
+
+    <p>
+        PRNGs are algorithms that produce a random sequence of integers using a deterministic mechanism. PRNGs 
+        generally begin with a seed and then perform a series of mathematical operations to create a sequence of 
+        numbers. While the sequence looks to be random, if the seed value and mathematical procedures employed 
+        are understood, it is completely predictable. As a result, PRNGs are helpful for a wide range of applications, 
+        including simulations and games, where pseudo-random numbers may offer the illusion of unpredictability 
+        without requiring genuine randomness.
+    </p>
+
+    <p>
+        TRNGs, on the other hand, rely on physical processes to provide real randomness, such as air noise, thermal 
+        noise, or radioactive decay. TRNGs create random numbers from physical sources of entropy that are 
+        fundamentally unpredictable and cannot be replicated, even if the process and measurement technique are 
+        understood. TRNGs are thus employed in applications where real randomness is critical, such as cryptography, 
+        where the use of predictable numbers might jeopardize the security of sensitive data.  
+    </p>
+
+    <p>
+        While both PRNGs and TRNGs have their applications, it is critical to grasp the distinctions between the two and 
+        when to utilize each. PRNGs are quicker, more efficient, and easier to construct, but they are not appropriate 
+        for applications that demand genuine randomness. On the other hand, TRNGs.
+    </p>
+
+    <h2>PUFs for the Design of TRNGs</h2>
+
+    <p>
+        PUFs may be used to create TRNGs with high entropy, with the quantity of randomness dictated by the number 
+        of created challenge-response pairs. PUF-based TRNGs have various benefits, including the fact that they are 
+        tamper-proof, low-cost, and do not require any additional hardware. PUF-based TRNGs may also be implemented in a variety
+        of devices, including FPGAs, ASICs, and microcontrollers, making them appropriate for a wide range of applications. however,
+        PUF-based TRNGs suffer a number of issues, including the necessity for calibration to assure consistent performance, 
+        vulnerability to many sorts of attacks, and the need for post-processing to extract high-quality random numbers. 
+        Furthermore, the use of PUFs for generating random numbers is new, and further study is needed to fully explore their potential and overcome their limitations.
+
+    </p>
+
+    <h2>Randomness of Pre-Formed ReRAMs</h2>
+
+    <p>
+        Pre-Formed Resistive Random-Access Memory (ReRAMs) are a form of non-volatile memory that can create real 
+        random numbers. ReRAMs are based on the resistive switching phenomenon, in which a memory cell's 
+        resistance may transition between two states, high and low, as a result of the development and rupture of 
+        conductive filaments. These filaments grow at random, and their rupture is controlled by a variety of factors, 
+        including the cell's history, material quality, and environmental circumstances. As a result, the cell's resistance 
+        fluctuates randomly, and the fluctuations in resistance may be utilized to produce real random numbers.
+    </p>
+
+    <p>
+        TRNGs based on ReRAM provide a number of benefits, including low power consumption, excellent scalability, 
+        and interoperability with conventional CMOS technology. ReRAMs have also been demonstrated to have a high 
+        amount of unpredictability, with entropy levels surpassing 7.5 bits per cell, making them appropriate for 
+        cryptographic applications. Nevertheless, ReRAM-based TRNGs have a number of issues, including the necessity 
+        for careful design and optimization to obtain the appropriate amount of unpredictability, as well as the need 
+        for post-processing to extract high-quality random numbers
+    </p>
+
+    <p>
+        Overall, ReRAM-based TRNGs offer a viable approach for generating genuine random numbers, with 
+        applications in encryption, simulation, and gaming, among others. The stochastic character of the resistive 
+        switching process, which renders it intrinsically unpredictable and impossible to recreate even under controlled 
+        settings, accounts for ReRAMs' randomization.
+    </p>
+
+    <h2>Design of TRNGs with Pre-Formed ReRAM Arrays</h2>
+
+    <p>
+        Designing TRNGs with pre-formed ReRAM arrays involves several key steps.
+    </p>
+
+    <p>
+        The second stage is to design the readout circuitry, which includes choosing the right sensing amplifier, 
+        comparator, and post-processing circuit. The sensing amplifier should be able to detect minor differences in cell 
+        resistance, while the comparator should be built to reduce noise and offset errors. The post-processing circuit 
+        should be adjusted in order to obtain high-quality random numbers while eliminating any biases or correlations.
+
+    </p>
+
+    <p>
+        The third phase is to characterize and optimize the ReRAM cells, which entails assessing the cells' resistance 
+        distributions and tweaking their programming settings to ensure a high amount of unpredictability. The 
+        characterisation method should also take into account other elements that impact cell resistance, including as 
+        temperature, voltage, and lifespan.
+
+    </p>
+
+    <p>
+        The fourth phase is TRNG verification and testing, which entails examining the statistical features of the 
+        produced random numbers as well as verifying the TRNG's performance under various situations such as 
+        temperature and voltage fluctuations. To confirm that the TRNG fulfills the needed randomness and security 
+        standards, it should be evaluated against a variety of statistical tests, such as the NIST SP 800-22 test suite.
+     </p>
+
+     <p>
+        Overall, developing TRNGs using pre-formed ReRAM arrays necessitates careful consideration of a number of 
+        variables, including array size, readout circuitry, ReRAM cell optimization, and verification and testing. The 
+        resultant TRNGs, however, have a high amount of unpredictability, low power consumption, and compatibility 
+        with common CMOS technology, making them appropriate for a wide range of applications in cryptography, 
+        simulation, and gaming.
+
+     </p>
+
+     <img src="C:\Users\AKHIL\Downloads\TRNG_PIC.jpg" width="512" height="512">
+
+     <h2>Combining TRNGs with Additional Schemes to Enhance Randomness</h2>
+
+     <p>
+        Combining TRNGs with additional schemes can enhance the randomness of the generated numbers and improve 
+        their quality. Some of the commonly used schemes include:
+     </p>
+
+     <p>
+        Post-processing technique: The procedures entail adding mathematical operations to the raw TRNG output in 
+        order to eliminate bias or correlation and improve the statistical quality of the produced numbers. Von 
+        Neumann debiasing, hashing, and error correcting codes are examples of post-processing methods.
+
+     </p>
+
+     <p>
+        Entropy extraction from many sources: By combining the outputs of numerous TRNGs or other entropy sources, 
+        such as physical noise sources or chaotic systems, the unpredictability of a TRNG can be increased. To increase 
+        the quality of the produced numbers, the combined output can be sent into a post-processing circuit.
+
+     </p>
+
+     <h2>Conclusion</h2>
+
+     <p>
+        In conclusion, pre-formed ReRAM cells have been demonstrated to provide a potential substrate for the creation 
+        of TRNGs. The unpredictability of the ReRAM cells may be traced to the cells' inherent fluctuation in resistance, 
+        which can be used to create high-quality random numbers. PUFs can also be used with ReRAM cells to increase 
+        the unpredictability and security of the produced numbers.
+     </p>
+
+     <p>
+        Other techniques can be used in conjunction with pre-formed ReRAM cells to improve the unpredictability and 
+        security of the produced numbers. Post-processing approaches, entropy extraction from numerous sources, 
+        entropy injection, and non-linear transformations are examples of these systems. The success of these systems, 
+        however, is determined by the specific implementation and the degree of entropy offered by each source.
+     </p>
+
+     <p>
+        Overall, the use of pre-formed ReRAM cells in conjunction with other methods can give a better level of 
+        unpredictability and security, making them appropriate for a variety of cryptographic applications. Further study 
+        is needed to improve the design of TRNGs based on ReRAM cells and assure their appropriateness for practical 
+        application.
+     </p>
+
+     <h2>REFERENCES</h2>
+
+     <ol>
+        <li>
+            Dodson, B., & Koushanfar, F. (2018). PUFs for the design of TRNGs. IEEE Transactions on Computer-Aided 
+            Design of Integrated Circuits and Systems, 37(11), 2771-2784.
+        </li>
+        <li>
+            Gambini, M., & Sallese, J. M. (2021). TRNGs from pre-formed ReRAM arrays. IEEE Transactions on Circuits 
+            and Systems I: Regular Papers, 68(1), 320-331.
+        </li>
+        <li>
+            Gössler, G., Krutzler, C., & Hutter, M. (2017). A survey of true random number generators with 
+            applications. Journal of Cryptographic Engineering, 7(2), 63-80.
+        </li>
+        <li>
+            Maes, R., Van Herrewege, A., Standaert, F. X., & Verbauwhede, I. (2012). The True Random Function 
+            Generator: Design, evaluation and comparison. Cryptographic Hardware and Embedded Systems-CHES 
+            2012, 430-447.
+        </li>
+        <li>
+            Maes, R., Verbauwhede, I., & Dehaene, W. (2010). Design considerations for true random number 
+            generators on FPGAs. International Conference on Cryptology and Network Security, 1-19.
+        </li>
+        <li>
+            Skoric, B., & Verbauwhede, I. (2014). TRNGs: a survey of design techniques and challenges. IACR 
+            Cryptology ePrint Archive, 2014, 887.
+        </li>
+        <li>
+            Su, S., & Koushanfar, F. (2014). Improving randomness of hardware-based true random number 
+            generators. IEEE Transactions on Very Large-Scale Integration (VLSI) Systems, 23(7), 1259-1272.
+        </li>
+        <li>
+            Yu, H., Jiang, H., Chen, S., Liu, X., & Xu, H. (2019). A true random number generator based on resistive 
+            switching memories. IEEE Transactions on Circuits and Systems II: Express Briefs, 66(8), 1309-1313.
+        </li>
+    </ol>
+
+
+    <h2 class="move-text">Addendum - Explanation of HTML Tags and CSS Styles</h2>
+<Section>
+    <h3>HTML Tags:</h3>
+    <ol>
+        <li>
+            <code>&lt;h1&gt;</code>:
+            <p><strong>Explanation:</strong> This tag is used for the top-level headings on the webpage.</p>
+            <p><strong>Why Used:</strong> It defines the appearance and structure of primary headings.</p>
+        </li>
+        <li>
+            <code>&lt;h2&gt;</code>:
+            <p><strong>Explanation:</strong> This tag is employed for secondary headings.</p>
+            <p><strong>Why Used:</strong> It establishes the style and hierarchy of secondary titles.</p>
+        </li>
+        <li>
+            <code>&lt;p&gt;</code>:
+            <p><strong>Explanation:</strong> This tag is utilized for paragraphs containing text.</p>
+            <p><strong>Why Used:</strong> It formats and organizes text into coherent paragraphs.</p>
+        </li>
+        <li>
+            <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code>:
+            <p><strong>Explanation:</strong> These tags denote unordered and ordered lists, respectively.</p>
+            <p><strong>Why Used:</strong> They structure and display lists of items or information.</p>
+        </li>
+        <li>
+            <code>&lt;a&gt;</code>:
+            <p><strong>Explanation:</strong> This tag represents hyperlinks, allowing for navigation to other web pages or resources.</p>
+            <p><strong>Why Used:</strong> It creates clickable links within the content.</p>
+        </li>
+        <li>
+            <code>&lt;sup&gt;</code>:
+            <p><strong>Explanation:</strong> This tag defines superscript text that appears slightly above the regular text line.</p>
+            <p><strong>Why Used:</strong> It is commonly used for references, footnotes, or citations.</p>
+    </ol>
+</Section>
+<Section>
+    <h3>CSS Styles:</h3>
+    <ol>
+        <li>
+            <code>body</code>:
+            <p><strong>Explanation:</strong> This style rule defines global settings for the entire webpage, including font, margins, padding, and background color.</p>
+            <p><strong>Why Used:</strong> It ensures a consistent layout and appearance for the entire page.</p>
+        </li>
+        <li>
+            <code>header</code>:
+            <p><strong>Explanation:</strong> These styles are applied to the header section of the webpage, including centering text, setting background color, and changing text color.</p>
+            <p><strong>Why Used:</strong> They customize the appearance and layout of the header.</p>
+        </li>
+        <li>
+            <code>footer</code>:
+            <p><strong>Explanation:</strong> These styles are used for the footer section located at the bottom of the webpage. They set the background color, text color, and text alignment.</p>
+            <p><strong>Why Used:</strong> They control the appearance and alignment of the footer.</p>
+        </li>
+        <li>
+            <code>h1</code> and <code>h2</code>:
+            <p><strong>Explanation:</strong> These style rules define the appearance of top-level and secondary headings (h1 and h2), including font size, color, and hover effects.</p>
+            <p><strong>Why Used:</strong> They customize the look of primary and secondary headings.</p>
+        </li>
+        <li>
+            <code>h3</code> and <code>h4</code>:
+            <p><strong>Explanation:</strong> These style rules are used for tertiary (h3) and quaternary (h4) headings, determining font size and transition effects.</p>
+            <p><strong>Why Used:</strong> They establish the style and effects for lower-level headings.</p>
+        </li>
+        <li>
+            <code>p</code>:
+            <p><strong>Explanation:</strong> These styles are applied to paragraphs of text, specifying font size, background color, and transition effects.</p>
+            <p><strong>Why Used:</strong> They customize the appearance of text paragraphs.</p>
+        </li>
+    </ol>
+
+</Section>
+
+    <div class="footer-text">
+        AKHIL GOUD DHUDALA (6275880) | <a href="mailto:ad2997@nau.edu">ad2997@nau.edu</a>
     </div>
+                                                                            
+    
+
 </body>
 </html>
